@@ -1,0 +1,16 @@
+{
+    "name": "dimon/test_task",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Models\\": "src/Models/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/database": "12.x-dev",
+        "ramsey/uuid": "5.x-dev",
+        "fakerphp/faker": "2.0.x-dev",
+        "illuminate/events": "12.x-dev"
+    }
+}
