@@ -7,11 +7,11 @@ require (__DIR__ . '/../vendor/autoload.php');
 
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Models\User;
-use Models\GroupAssign;
-use Models\Permission;
-use Models\PermissionsAssign;
-use Models\Group;
+use App\Models\User;
+use App\Models\GroupAssign;
+use App\Models\Permission;
+use App\Models\PermissionsAssign;
+use App\Models\Group;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 
@@ -31,7 +31,6 @@ $capsule->addConnection([
 $capsule->setEventDispatcher(new Dispatcher(new Container));
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
-
     $faker = Faker\Factory::create();
     if (Capsule::schema()->hasTable('users')) {
         echo ("Table 'users' already exist" . PHP_EOL);
@@ -105,7 +104,7 @@ $capsule->bootEloquent();
                 ]);
             });
         });
-        // Group::where('title', 'blocked')->update(['invert' => true]);
+        Group::where('title', 'blocked')->update(['invert' => true]);
     }
 
     if (Capsule::schema()->hasTable('group_assigns')) {
