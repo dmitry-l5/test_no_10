@@ -21,14 +21,15 @@ class Application
         $config = require_once('config.php');
         $capsule = new Capsule();
         $capsule->addConnection([
-            'driver'   => $config['db']['driver'],
-            'host'     => $config['db']['host'],
+            'driver' => $config['db']['driver'],
+            'host' => $config['db']['host'],
+            'port' => $config['db']['port'],
             'database' => $config['db']['database'],
             'username' => $config['db']['username'],
             'password' => $config['db']['password'],
-            'charset'   => 'utf8',
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
         $capsule->setEventDispatcher(new Dispatcher(new Container));
         $capsule->setAsGlobal();
